@@ -51,7 +51,11 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order />
+        {/* Use object spread to get everything which is inside state */}
+        {/* <Order {...this.state} /> */}
+
+        {/* To get exactly what we need from state  */}
+        <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
