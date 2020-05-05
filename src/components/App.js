@@ -35,15 +35,6 @@ class App extends React.Component {
     localStorage.setItem(params.storeId, JSON.stringify(this.state.order));
   }
 
-  updateFish = (key, updatedFish) => {
-    // 1. take a copy of the current state
-    const fishes = { ...this.state.fishes };
-    // 2. update that state
-    fishes[key] = updatedFish;
-    // 3. set the new data to state
-    this.setState({ fishes });
-  };
-
   addFish = (fish) => {
     // to update the state use the existing setState Api
     // 1. take a copy of the existing state
@@ -53,6 +44,25 @@ class App extends React.Component {
     // 3. Set the new fishes object
     this.setState({ fishes });
   };
+
+  updateFish = (key, updatedFish) => {
+    // 1. take a copy of the current state
+    const fishes = { ...this.state.fishes };
+    // 2. update that state
+    fishes[key] = updatedFish;
+    // 3. set the new data to state
+    this.setState({ fishes });
+  };
+
+  deleteFish = (key) => {
+    // 1. take a copy of state
+    const fishes = { ...this.state.fishes };
+    // 2. set the fish we don't want to null - firebase, otherwise use delete
+    fishes[key] = null;
+    // 3. update state
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -66,6 +76,14 @@ class App extends React.Component {
     this.setState({ order });
   };
 
+  removeFromOrder = (key) => {
+    // 1. take a copy of the state
+    const order = { ...this.state.order };
+    // 2. delete the fish from order
+    delete order[key];
+    // 3. set state again
+    this.setState({ order });
+  };
   render() {
     return (
       <div className="catch-of-the-day">
@@ -88,10 +106,15 @@ class App extends React.Component {
         {/* <Order {...this.state} /> */}
 
         {/* To get exactly what we need from state  */}
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />
