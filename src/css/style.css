@@ -22,18 +22,15 @@
   padding: 0 !important;
 }
 .count-enter {
-  background: #f00;
   transition: 0.5s;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
 .count-enter.count-enter-active {
-  background: #ff0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 .count-exit {
-  background: #000;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   transition: 0.5s;
@@ -42,7 +39,6 @@
   bottom: 0;
 }
 .count-exit.count-exit-active {
-  background: #008000;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }

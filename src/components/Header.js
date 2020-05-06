@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // Stateless Functional component
 const Header = (props) => (
@@ -16,6 +17,11 @@ const Header = (props) => (
     </h3>
   </header>
 );
+
+// add proptypes after the component because is stateless
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired,
+};
 
 // Full React Component
 // class Header extends React.Component {

@@ -5,6 +5,7 @@ import Order from "./Order";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import base from "../base";
+import PropTypes from "prop-types";
 class App extends React.Component {
   // use a property to create state
   state = {
@@ -12,6 +13,9 @@ class App extends React.Component {
     order: {},
   };
 
+  static propTypes = {
+    match: PropTypes.object,
+  };
   componentDidMount() {
     const { params } = this.props.match;
     // first reinstate our localStorage

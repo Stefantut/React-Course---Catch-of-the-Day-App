@@ -1,6 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { formatPrice } from "../helpers";
+
 class Fish extends React.Component {
+  // add proptypes inside the beacuse is a regural React component
+  // added static because we are declaring the propTypes for all fishes
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      desc: PropTypes.string,
+      status: PropTypes.string,
+      price: PropTypes.number,
+    }),
+    addToOrder: PropTypes.func,
+  };
   render() {
     // using es6 destructuring
     const { image, name, price, desc, status } = this.props.details;
