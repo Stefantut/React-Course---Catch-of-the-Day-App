@@ -6,6 +6,7 @@ class EditFishForm extends React.Component {
     // 1. take a copy of the current fish
     const updatedFish = {
       ...this.props.fish,
+      // using computed property names
       [event.currentTarget.name]: event.currentTarget.value,
     };
     this.props.updateFish(this.props.index, updatedFish);
