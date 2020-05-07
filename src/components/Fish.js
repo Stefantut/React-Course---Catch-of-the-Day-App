@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { formatPrice } from "../helpers";
 
 class Fish extends React.Component {
-  // add proptypes inside the beacuse is a regural React component
+  // add proptypes inside the because is a regular React component
   // added static because we are declaring the propTypes for all fishes
   static propTypes = {
     details: PropTypes.shape({
